@@ -67,7 +67,7 @@
 #define Y_MIN_PIN                             11
 #define Y_MAX_PIN                             23
 #ifndef Z_MIN_PIN
-  #define Z_MIN_PIN                           10
+  #define Z_MIN_PIN                           5  // PWM header pin 5  変更者:小林崇朗
 #endif
 #define Z_MAX_PIN                             30
 
@@ -79,7 +79,7 @@
 #endif
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                       5
+  #define FIL_RUNOUT_PIN                       -1  // PWM header pin 5  変更者:小林崇朗
 #endif
 
 //
