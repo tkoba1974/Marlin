@@ -1017,6 +1017,7 @@
 	#define CONF_BACK_PROBE_MARGIN 0
 
 	#define CONF_XY_PROBE_SPEED 6000
+	#define CONF_Z_PROBE_SPEED 960
 
 	//#define LIN_ADVANCE
 	//#define SDSUPPORT

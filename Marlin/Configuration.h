@@ -837,9 +837,9 @@
  */
 #define DEFAULT_MAX_FEEDRATE          {CONF_MAX_FEEDRATE_X, CONF_MAX_FEEDRATE_Y, CONF_MAX_FEEDRATE_Z, CONF_MAX_FEEDRATE_E}
 
-//#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
+#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 50 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    {CONF_MAX_FEEDRATE_X, CONF_MAX_FEEDRATE_Y, CONF_MAX_FEEDRATE_Z, CONF_MAX_FEEDRATE_E} // ...or, set your own edit limits
 #endif
 
 /**
@@ -850,9 +850,9 @@
  */
 #define DEFAULT_MAX_ACCELERATION      {CONF_MAX_ACCELERATION_X,CONF_MAX_ACCELERATION_Y,CONF_MAX_ACCELERATION_Z,CONF_MAX_ACCELERATION_E}
 
-//#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
+#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
+  #define MAX_ACCEL_EDIT_VALUES       {CONF_MAX_ACCELERATION_X,CONF_MAX_ACCELERATION_Y,CONF_MAX_ACCELERATION_Z,CONF_MAX_ACCELERATION_E} // ...or, set your own edit limits
 #endif
 
 /**
@@ -1091,7 +1091,7 @@
 #define XY_PROBE_FEEDRATE CONF_XY_PROBE_SPEED
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST 4*60*4
+#define Z_PROBE_FEEDRATE_FAST CONF_Z_PROBE_SPEED
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 8)
@@ -1178,7 +1178,7 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+//#define PROBING_HEATERS_OFF       // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
   #define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
   #define WAIT_FOR_HOTEND         // Wait for hotend to heat back up between probes (to improve accuracy & prevent cold extrude)
@@ -1246,7 +1246,7 @@
  */
 //#define Z_IDLE_HEIGHT Z_HOME_POS
 
-#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT  5      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
 #define Z_AFTER_HOMING  20      // (mm) Height to move to after homing Z

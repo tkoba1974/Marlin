@@ -49,7 +49,7 @@
  */
 void GcodeSuite::M115() {
   SERIAL_ECHOLNPGM(
-    "FIRMWARE_NAME:Marlin " DETAILED_BUILD_VERSION " (" __DATE__ ") "  //変更者:小林崇朗
+    "FIRMWARE_NAME:Marlin " DETAILED_BUILD_VERSION " (" __DATE__ " " __TIME__ ") "
     "SOURCE_CODE_URL:" SOURCE_CODE_URL " "
     "PROTOCOL_VERSION:" PROTOCOL_VERSION " "
     "MACHINE_TYPE:" MACHINE_NAME " "
