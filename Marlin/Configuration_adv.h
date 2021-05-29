@@ -1697,18 +1697,18 @@
  * the probe to be unable to reach any points.
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
-  #define PROBING_MARGIN_LEFT CONF_LEFT_PROBE_MARGIN
-  #define PROBING_MARGIN_RIGHT CONF_RIGHT_PROBE_MARGIN
-  #define PROBING_MARGIN_FRONT CONF_FRONT_PROBE_MARGIN
-  #define PROBING_MARGIN_BACK CONF_BACK_PROBE_MARGIN
+  //#define PROBING_MARGIN_LEFT PROBING_MARGIN
+  //#define PROBING_MARGIN_RIGHT PROBING_MARGIN
+  //#define PROBING_MARGIN_FRONT PROBING_MARGIN
+  //#define PROBING_MARGIN_BACK PROBING_MARGIN
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
   // Override the mesh area if the automatic (max) area is too large
-  //#define MESH_MIN_X MESH_INSET
-  //#define MESH_MIN_Y MESH_INSET
-  //#define MESH_MAX_X X_BED_SIZE - (MESH_INSET)
-  //#define MESH_MAX_Y Y_BED_SIZE - (MESH_INSET)
+  #define MESH_MIN_X CONF_LEFT_PROBE_MARGIN
+  #define MESH_MIN_Y CONF_FRONT_PROBE_MARGIN
+  #define MESH_MAX_X X_BED_SIZE - CONF_RIGHT_PROBE_MARGIN
+  #define MESH_MAX_Y Y_BED_SIZE - CONF_BACK_PROBE_MARGIN
 #endif
 
 /**
@@ -1799,7 +1799,7 @@
 #if ENABLED(ARC_SUPPORT)
   #define MM_PER_ARC_SEGMENT      1 // (mm) Length (or minimum length) of each arc segment
   //#define ARC_SEGMENTS_PER_R    1 // Max segment length, MM_PER = Min
-  #define MIN_ARC_SEGMENTS       24 // Minimum number of segments in a complete circle
+  #define MIN_ARC_SEGMENTS       12 // Minimum number of segments in a complete circle
   //#define ARC_SEGMENTS_PER_SEC 50 // Use feedrate to choose segment length (with MM_PER_ARC_SEGMENT as the minimum)
   #define N_ARC_CORRECTION       25 // Number of interpolated segments between corrections
   //#define ARC_P_CIRCLES           // Enable the 'P' parameter to specify complete circles
