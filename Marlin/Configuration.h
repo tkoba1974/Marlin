@@ -864,7 +864,7 @@
 //#define K_DRIVER_TYPE  A4988
 #define E0_DRIVER_TYPE A4988
 #define E1_DRIVER_TYPE A4988
-//#define E2_DRIVER_TYPE A4988
+#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
 //#define E5_DRIVER_TYPE A4988
@@ -1311,7 +1311,7 @@
 // @section extruder
 
 #define DISABLE_E false             // Disable the extruder when not stepping
-#define DISABLE_INACTIVE_EXTRUDER   // Keep only the active extruder enabled
+//#define DISABLE_INACTIVE_EXTRUDER   // Keep only the active extruder enabled
 
 // @section machine
 

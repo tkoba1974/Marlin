@@ -111,7 +111,7 @@
 #define Y_MOTOR_CURRENT 100
 #define Z_MOTOR_CURRENT 190
 #define E_MOTOR_CURRENT 95
-#define X_T1_MOTOR_PWM 90 //daughteboard uses a different current mapping than digipot for T0
+#define E1_MOTOR_PWM 85 //daughteboard uses a different current mapping than digipot for T0  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
 
 
 

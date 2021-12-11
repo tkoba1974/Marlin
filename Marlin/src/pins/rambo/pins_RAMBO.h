@@ -101,9 +101,9 @@
 #define E0_DIR_PIN                            43
 #define E0_ENABLE_PIN                         26
 
-#define E1_STEP_PIN                           33
-#define E1_DIR_PIN                            42
-#define E1_ENABLE_PIN                         25
+#define E2_STEP_PIN                           33  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+#define E2_DIR_PIN                            42  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+#define E2_ENABLE_PIN                         25  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
 
 // Microstepping pins - Mapping not from fastio.h (?)
 #define X_MS1_PIN                             40
@@ -114,56 +114,56 @@
 #define Z_MS2_PIN                             67
 #define E0_MS1_PIN                            65
 #define E0_MS2_PIN                            66
-#define E1_MS1_PIN                            63
-#define E1_MS2_PIN                            64
+#define E2_MS1_PIN                            63  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+#define E2_MS2_PIN                            64  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
 
 //Makergear M3用シールドのピン配置追加
 //変更日: 2021年3月24日
 //変更者: 小林崇朗
 #if CONF_SHIELD == RAMBO_SHIELD_11
 
-  #define X2_STEP_PIN         32  //second x axis Step
-  #define X2_DIR_PIN          44  //second x axis dir
-  #define X2_ENABLE_PIN       22  //second x axis enable
-  #define X2_MS1_PIN         23  //ms1 pin for second X axis
-  #define X2_MS2_PIN         31   //ms2 pin for second X axis
-  #define X2_MS3_PIN         45   //ms2 pin for second X axis
+  #define E2_STEP_PIN         32  //second x axis Step
+  #define E2_DIR_PIN          44  //second x axis dir
+  #define E2_ENABLE_PIN       22  //second x axis enable
+  #define E2_MS1_PIN         23  //ms1 pin for second X axis
+  #define E2_MS2_PIN         31   //ms2 pin for second X axis
+  #define E2_MS3_PIN         45   //ms2 pin for second X axis
 #endif
 #if CONF_SHIELD == RAMBO_SHIELD_12
 
-  #define X2_STEP_PIN         45  //second x axis Step
-  #define X2_DIR_PIN          23  //second x axis dir
-  #define X2_ENABLE_PIN       22  //second x axis enable
-  #define X2_CURRENT_PIN      31  //second x axis enable
-  #define X2_MS1_PIN         23  //ms1 pin for second X axis
-  #define X2_MS2_PIN         44   //ms2 pin for second X axis
+  #define E2_STEP_PIN         45  //second x axis Step
+  #define E2_DIR_PIN          23  //second x axis dir
+  #define E2_ENABLE_PIN       22  //second x axis enable
+  #define E2_CURRENT_PIN      31  //second x axis enable
+  #define E2_MS1_PIN         23  //ms1 pin for second X axis
+  #define E2_MS2_PIN         44   //ms2 pin for second X axis
 #endif
 #if CONF_SHIELD == RAMBO_SHIELD_13
 
-  #define X2_STEP_PIN         31  //second x axis Step
-  #define X2_DIR_PIN          23  //second x axis dir
-  #define X2_ENABLE_PIN       22  //second x axis enable
-  #define X2_CURRENT_PIN      45  //second x axis enable
-  #define X2_MS1_PIN         32  //ms1 pin for second X axis
-  #define X2_MS2_PIN         44   //ms2 pin for second X axis
+  #define E2_STEP_PIN         31  //second x axis Step
+  #define E2_DIR_PIN          23  //second x axis dir
+  #define E2_ENABLE_PIN       22  //second x axis enable
+  #define E2_CURRENT_PIN      45  //second x axis enable
+  #define E2_MS1_PIN         32  //ms1 pin for second X axis
+  #define E2_MS2_PIN         44   //ms2 pin for second X axis
 #endif
 #if CONF_SHIELD == RAMBO_SHIELD_14
 
-  #define X2_STEP_PIN         31  //second x axis Step
-  #define X2_DIR_PIN          23  //second x axis dir
-  #define X2_ENABLE_PIN       22  //second x axis enable
-  #define X2_CURRENT_PIN      45  //second x axis enable
-  #define X2_MS1_PIN         32  //ms1 pin for second X axis
-  #define X2_MS2_PIN         44   //ms2 pin for second X axis
+  #define E2_STEP_PIN         31  //second x axis Step
+  #define E2_DIR_PIN          23  //second x axis dir
+  #define E2_ENABLE_PIN       22  //second x axis enable
+  #define E2_CURRENT_PIN      45  //second x axis enable
+  #define E2_MS1_PIN         32  //ms1 pin for second X axis
+  #define E2_MS2_PIN         44   //ms2 pin for second X axis
 #endif
 #if CONF_SHIELD == RAMBO_SHIELD_15
 
-  #define X2_STEP_PIN         31  //second x axis Step
-  #define X2_DIR_PIN          23  //second x axis dir
-  #define X2_ENABLE_PIN       22  //second x axis enable
-  #define X2_CURRENT_PIN      45  //second x axis enable
-  #define X2_MS1_PIN         32  //ms1 pin for second X axis
-  #define X2_MS2_PIN         44   //ms2 pin for second X axis
+  #define E1_STEP_PIN         31  //second x axis Step  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define E1_DIR_PIN          23  //second x axis dir  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define E1_ENABLE_PIN       22  //second x axis enable  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define E1_CURRENT_PIN      45  //second x axis enable  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define E1_MS1_PIN         32  //ms1 pin for second X axis  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define E1_MS2_PIN         44   //ms2 pin for second X axis  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
 
 #endif
 //追加コードはここまで

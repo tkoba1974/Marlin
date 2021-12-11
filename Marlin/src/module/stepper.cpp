@@ -3168,11 +3168,11 @@ void Stepper::report_positions() {
         const uint8_t digipot_ch[] = DIGIPOT_CHANNELS;
         set_digipot_value_spi(digipot_ch[driver], current);
 
-        //T1用 X2ステッピングモーターの電流制御(X2_CURRENT_PINを使ってアナログPWM制御)用のコード追加
+        //T1用 X2ステッピングモーターの電流制御(E2_CURRENT_PINを使ってアナログPWM制御)用のコード追加  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
         //変更日: 2021年3月24日
         //変更者: 小林崇朗
-        SET_OUTPUT(X2_CURRENT_PIN);
-        analogWrite(X2_CURRENT_PIN, X_T1_MOTOR_PWM);//extra x motor is not on a digipot
+        SET_OUTPUT(E1_CURRENT_PIN);
+        analogWrite(E1_CURRENT_PIN, E1_MOTOR_PWM);//extra x motor is not on a digipot
         TCCR5B = (TCCR5B & ~(_BV(CS50) | _BV(CS51) | _BV(CS52))) | _BV(CS50); //set PWM frequency to reduce buzzing
         //追加コードはここまで
 
