@@ -53,11 +53,11 @@
 #ifndef SERVO0_PIN
   #define SERVO0_PIN                          22  // Motor header MX1
 #endif
-#define SERVO1_PIN                            23  // Motor header MX2
+#define SERVO1_PIN                             4  // Motor header MX2  変更者:小林崇朗
 #ifndef SERVO2_PIN
   #define SERVO2_PIN                          24  // Motor header MX3
 #endif
-#define SERVO3_PIN                             5  // PWM header pin 5
+#define SERVO3_PIN                            -1  // PWM header pin 5  変更者:小林崇朗
 
 //
 // Limit Switches
@@ -67,7 +67,7 @@
 #define Y_MIN_PIN                             11
 #define Y_MAX_PIN                             23
 #ifndef Z_MIN_PIN
-  #define Z_MIN_PIN                           10
+  #define Z_MIN_PIN                            5  // PWM header pin 5  変更者:小林崇朗
 #endif
 #define Z_MAX_PIN                             30
 
@@ -79,7 +79,7 @@
 #endif
 
 #ifndef FIL_RUNOUT_PIN
-  #define FIL_RUNOUT_PIN                       5
+  #define FIL_RUNOUT_PIN                      -1  //変更者:小林崇朗
 #endif
 
 //
@@ -101,9 +101,9 @@
 #define E0_DIR_PIN                            43
 #define E0_ENABLE_PIN                         26
 
-#define E1_STEP_PIN                           33
-#define E1_DIR_PIN                            42
-#define E1_ENABLE_PIN                         25
+#define E1_STEP_PIN                           31  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+#define E1_DIR_PIN                            23  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+#define E1_ENABLE_PIN                         22  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
 
 // Microstepping pins - Mapping not from fastio.h (?)
 #define X_MS1_PIN                             40
@@ -114,11 +114,63 @@
 #define Z_MS2_PIN                             67
 #define E0_MS1_PIN                            65
 #define E0_MS2_PIN                            66
-#define E1_MS1_PIN                            63
-#define E1_MS2_PIN                            64
+#define E1_MS1_PIN                            32  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+#define E1_MS2_PIN                            44  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+
+//Makergear M3用シールドのピン配置追加
+//変更日: 2021年3月24日
+//変更者: 小林崇朗
+#if CONF_SHIELD == RAMBO_SHIELD_11
+
+  #define X2_STEP_PIN         32  //second x axis Step
+  #define X2_DIR_PIN          44  //second x axis dir
+  #define X2_ENABLE_PIN       22  //second x axis enable
+  #define X2_MS1_PIN         23  //ms1 pin for second X axis
+  #define X2_MS2_PIN         31   //ms2 pin for second X axis
+  #define X2_MS3_PIN         45   //ms2 pin for second X axis
+#endif
+#if CONF_SHIELD == RAMBO_SHIELD_12
+
+  #define X2_STEP_PIN         45  //second x axis Step
+  #define X2_DIR_PIN          23  //second x axis dir
+  #define X2_ENABLE_PIN       22  //second x axis enable
+  #define X2_CURRENT_PIN      31  //second x axis enable
+  #define X2_MS1_PIN         23  //ms1 pin for second X axis
+  #define X2_MS2_PIN         44   //ms2 pin for second X axis
+#endif
+#if CONF_SHIELD == RAMBO_SHIELD_13
+
+  #define X2_STEP_PIN         31  //second x axis Step
+  #define X2_DIR_PIN          23  //second x axis dir
+  #define X2_ENABLE_PIN       22  //second x axis enable
+  #define X2_CURRENT_PIN      45  //second x axis enable
+  #define X2_MS1_PIN         32  //ms1 pin for second X axis
+  #define X2_MS2_PIN         44   //ms2 pin for second X axis
+#endif
+#if CONF_SHIELD == RAMBO_SHIELD_14
+
+  #define X2_STEP_PIN         31  //second x axis Step
+  #define X2_DIR_PIN          23  //second x axis dir
+  #define X2_ENABLE_PIN       22  //second x axis enable
+  #define X2_CURRENT_PIN      45  //second x axis enable
+  #define X2_MS1_PIN         32  //ms1 pin for second X axis
+  #define X2_MS2_PIN         44   //ms2 pin for second X axis
+#endif
+#if CONF_SHIELD == RAMBO_SHIELD_15
+
+  #define X2_STEP_PIN         33  //second x axis Step  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define X2_DIR_PIN          42  //second x axis dir  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define X2_ENABLE_PIN       25  //second x axis enable  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  //#define X2_CURRENT_PIN      45  //second x axis enable  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define X2_MS1_PIN         63  //ms1 pin for second X axis  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define X2_MS2_PIN         64   //ms2 pin for second X axis  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+  #define E1_CURRENT_PIN      45  //E1 current (PWM)  // E1⇄E2入れ替えに伴う変更  変更者:小林崇朗
+
+#endif
+//追加コードはここまで
 
 #define DIGIPOTSS_PIN                         38
-#define DIGIPOT_CHANNELS { 4, 5, 3, 0, 1 }        // X Y Z E0 E1 digipot channels to stepper driver mapping
+#define DIGIPOT_CHANNELS { 4, 5, 3, 0, 1 }        // X Y Z E0 X2 digipot channels to stepper driver mapping
 #ifndef DIGIPOT_MOTOR_CURRENT
   #define DIGIPOT_MOTOR_CURRENT { 135,135,135,135,135 }   // Values 0-255 (RAMBO 135 = ~0.75A, 185 = ~1A)
 #endif
@@ -135,7 +187,7 @@
 //
 #define HEATER_0_PIN                           9
 #define HEATER_1_PIN                           7
-#define HEATER_2_PIN                           6
+#define HEATER_2_PIN                           -1  //変更者: 小林崇朗
 #define HEATER_BED_PIN                         3
 
 #ifndef FAN_PIN
@@ -158,6 +210,8 @@
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                      46
 #endif
+
+#define BEEPER_PIN                            19  //スピーカーのピン配置追加 変更者:小林崇朗
 
 #ifndef FILWIDTH_PIN
   #define FILWIDTH_PIN                         3  // Analog Input

@@ -36,6 +36,7 @@
 
 #include "../core/macros.h"
 #include "../core/boards.h"
+#include "../../Configuration_makergear.h"    //変更者:小林崇朗
 #include "../../Configuration.h"
 
 #ifdef CUSTOM_VERSION_FILE

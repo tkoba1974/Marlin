@@ -99,7 +99,7 @@
        * @param duration Duration of the tone in milliseconds
        * @param frequency Frequency of the tone in hertz
        */
-      static void tone(const uint16_t duration, const uint16_t frequency=0);
+      static void tone(const uint16_t duration, const uint16_t frequency=1000);
 
       /**
        * @brief Tick function

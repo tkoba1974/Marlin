@@ -57,7 +57,7 @@ void GcodeSuite::M701() {
   xyz_pos_t park_point = NOZZLE_PARK_POINT;
 
   // Don't raise Z if the machine isn't homed
-  if (TERN0(NO_MOTION_BEFORE_HOMING, axes_should_home())) park_point.z = 0;
+  if (TERN0(NO_MOTION_BEFORE_HOMING, axes_should_home())) park_point.z = NOZZLE_PARK_Z_RAISE_MIN;//変更者: 小林崇朗
 
   #if ENABLED(MIXING_EXTRUDER)
     const int8_t eindex = get_target_e_stepper_from_command();
@@ -99,6 +99,13 @@ void GcodeSuite::M701() {
   // Raise the Z axis (with max limit)
   const float park_raise = _MIN(park_point.z, (Z_MAX_POS) - current_position.z);
   move_z_by(park_raise);
+
+  //ノズルをPark Positionに移動
+  ///変更日: 2022年5月4日
+  //変更者: 小林崇朗
+  gcode.process_subcommands_now(F("G28 X Y"));
+  do_blocking_move_to_y(park_point.y,NOZZLE_PARK_XY_FEEDRATE);
+  do_blocking_move_to_x(park_point.x,NOZZLE_PARK_XY_FEEDRATE);
 
   // Load filament
   #if HAS_PRUSA_MMU2
@@ -148,7 +155,7 @@ void GcodeSuite::M702() {
   xyz_pos_t park_point = NOZZLE_PARK_POINT;
 
   // Don't raise Z if the machine isn't homed
-  if (TERN0(NO_MOTION_BEFORE_HOMING, axes_should_home())) park_point.z = 0;
+  if (TERN0(NO_MOTION_BEFORE_HOMING, axes_should_home())) park_point.z = NOZZLE_PARK_Z_RAISE_MIN;//変更者: 小林崇朗
 
   #if ENABLED(MIXING_EXTRUDER)
     const uint8_t old_mixing_tool = mixer.get_current_vtool();
@@ -194,6 +201,13 @@ void GcodeSuite::M702() {
   // Lift Z axis
   if (park_point.z > 0)
     do_blocking_move_to_z(_MIN(current_position.z + park_point.z, Z_MAX_POS), feedRate_t(NOZZLE_PARK_Z_FEEDRATE));
+
+  //ノズルをPark Positionに移動
+  ///変更日: 2022年5月4日
+  //変更者: 小林崇朗
+  gcode.process_subcommands_now(F("G28 X Y"));
+  do_blocking_move_to_y(park_point.y,NOZZLE_PARK_XY_FEEDRATE);
+  do_blocking_move_to_x(park_point.x,NOZZLE_PARK_XY_FEEDRATE);
 
   // Unload filament
   #if HAS_PRUSA_MMU2
