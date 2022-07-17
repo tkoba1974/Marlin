@@ -942,21 +942,21 @@
  * following movement settings. If fewer factors are given than the
  * total number of extruders, the last value applies to the rest.
  */
-#define DISTINCT_E_FACTORS
+//#define DISTINCT_E_FACTORS
 
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {CONF_X_PULLEY_STEPS,CONF_Y_PULLEY_STEPS,CONF_Z_STEPS,CONF_FILAMENT_MOTOR_STEPS_E0,CONF_FILAMENT_MOTOR_STEPS_E1}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {CONF_X_PULLEY_STEPS,CONF_Y_PULLEY_STEPS,CONF_Z_STEPS,CONF_FILAMENT_MOTOR_STEPS_E0}
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          {CONF_MAX_FEEDRATE_X, CONF_MAX_FEEDRATE_Y, CONF_MAX_FEEDRATE_Z, CONF_MAX_FEEDRATE_E, CONF_MAX_FEEDRATE_E}
+#define DEFAULT_MAX_FEEDRATE          {CONF_MAX_FEEDRATE_X, CONF_MAX_FEEDRATE_Y, CONF_MAX_FEEDRATE_Z, CONF_MAX_FEEDRATE_E}
 
 #define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -969,7 +969,7 @@
  * Override with M201
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_ACCELERATION      {CONF_MAX_ACCELERATION_X,CONF_MAX_ACCELERATION_Y,CONF_MAX_ACCELERATION_Z,CONF_MAX_ACCELERATION_E,CONF_MAX_ACCELERATION_E}
+#define DEFAULT_MAX_ACCELERATION      {CONF_MAX_ACCELERATION_X,CONF_MAX_ACCELERATION_Y,CONF_MAX_ACCELERATION_Z,CONF_MAX_ACCELERATION_E}
 
 #define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
