@@ -3339,6 +3339,15 @@ void Stepper::report_positions() {
         const uint8_t digipot_ch[] = DIGIPOT_CHANNELS;
         set_digipot_value_spi(digipot_ch[driver], current);
 
+        //E1ステッピングモーターの電流制御(E1_CURRENT_PINを使ってアナログPWM制御)用のコード追加
+        //変更日: 2021年3月24日
+        //変更者: 小林崇朗
+        SET_OUTPUT(E1_CURRENT_PIN);
+        analogWrite(E1_CURRENT_PIN, 190);//extra x motor is not on a digipot
+        //TCCR5B = (TCCR5B & ~(_BV(CS50) | _BV(CS51) | _BV(CS52))) | _BV(CS50); //set PWM frequency to reduce buzzing
+        TCCR5B = (TCCR5B & ~(_BV(WGM52) | _BV(WGM53) | _BV(ICES5))) | _BV(WGM52); //set PWM frequency to reduce buzzing
+        //追加コードはここまで
+
       #elif HAS_MOTOR_CURRENT_PWM
 
         #define _WRITE_CURRENT_PWM(P) hal.set_pwm_duty(pin_t(MOTOR_CURRENT_PWM_## P ##_PIN), 255L * current / (MOTOR_CURRENT_PWM_RANGE))

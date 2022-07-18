@@ -919,6 +919,7 @@ volatile bool Temperature::raw_temps_ready = false;
 
     // Move to center of bed, just above bed height and cool with max fan
     gcode.home_all_axes(true);
+    gcode.process_subcommands_now(F("G28 X"));
     disable_all_heaters();
     #if HAS_FAN
       zero_fan_speeds();
