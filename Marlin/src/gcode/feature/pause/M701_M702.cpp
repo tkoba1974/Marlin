@@ -128,6 +128,11 @@ void GcodeSuite::M701() {
   // Restore Z axis
   move_z_by(-park_raise);
 
+  //ノズルを原点に戻す
+  ///変更日: 2022年7月18日
+  //変更者: 小林崇朗
+  gcode.process_subcommands_now(F("G28 X Y"));
+
   #if HAS_MULTI_EXTRUDER && (HAS_PRUSA_MMU1 || !HAS_MMU)
     // Restore toolhead if it was changed
     if (active_extruder_before_filament_change != active_extruder)
