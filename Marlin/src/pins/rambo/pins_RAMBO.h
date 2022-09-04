@@ -51,7 +51,7 @@
 // Servos
 //
 #ifndef SERVO0_PIN
-  #define SERVO0_PIN                          22  // Motor header MX1
+  #define SERVO0_PIN                          -1  // 変更者:小林崇朗
 #endif
 #define SERVO1_PIN                             4  // Motor header MX2  変更者:小林崇朗
 #ifndef SERVO2_PIN
@@ -65,7 +65,7 @@
 #define X_MIN_PIN                             12
 #define X_MAX_PIN                             24
 #define Y_MIN_PIN                             11
-#define Y_MAX_PIN                             23
+#define Y_MAX_PIN                             -1  //変更者:小林崇朗
 #ifndef Z_MIN_PIN
   #define Z_MIN_PIN                            5  // PWM header pin 5  変更者:小林崇朗
 #endif
@@ -165,7 +165,7 @@
 //
 #define SDSS                                  53
 #define LED_PIN                               13
-#define PS_ON_PIN                              4
+#define PS_ON_PIN                             -1  //変更者: 小林崇朗
 
 #ifndef CASE_LIGHT_PIN
   #define CASE_LIGHT_PIN                      46
@@ -180,22 +180,22 @@
 //
 // M3/M4/M5 - Spindle/Laser Control
 //
-#define SPINDLE_LASER_PWM_PIN                 45  // Hardware PWM
-#define SPINDLE_LASER_ENA_PIN                 31  // Pullup!
-#define SPINDLE_DIR_PIN                       32
+#define SPINDLE_LASER_PWM_PIN                 -1  // Hardware PWM
+#define SPINDLE_LASER_ENA_PIN                 -1  // Pullup!
+#define SPINDLE_DIR_PIN                       -1
 
 //
 // SPI for MAX Thermocouple
 //
 #ifndef TEMP_0_CS_PIN
-  #define TEMP_0_CS_PIN                       32  // SPINDLE_DIR_PIN / STAT_LED_BLUE_PIN
+  #define TEMP_0_CS_PIN                       -1  // SPINDLE_DIR_PIN / STAT_LED_BLUE_PIN
 #endif
 
 //
 // M7/M8/M9 - Coolant Control
 //
-#define COOLANT_MIST_PIN                      22
-#define COOLANT_FLOOD_PIN                     44
+#define COOLANT_MIST_PIN                      -1
+#define COOLANT_FLOOD_PIN                     -1
 
 //
 // Průša i3 MK2 Multiplexer Support
