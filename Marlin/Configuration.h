@@ -1174,11 +1174,11 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 20, 30 }
+#define DEFAULT_MAX_FEEDRATE          { 190, 190, 15, 30 }
 
 #define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 300, 300, 20, 30 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 190, 190, 15, 30 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1244,7 +1244,7 @@
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.07 // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.20 // (mm) Distance from real junction edge
   #define JD_HANDLE_SMALL_SEGMENTS    // Use curvature estimation instead of just the junction angle
                                       // for small segments (< 1mm) with large junction angles (> 135°).
 #endif
@@ -1257,7 +1257,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1694,14 +1694,14 @@
 
 // The size of the printable area
 #define X_BED_SIZE 200
-#define Y_BED_SIZE 220
+#define Y_BED_SIZE 250
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS -18.82
-#define Y_MIN_POS -23.5
+#define Y_MIN_POS -3.5
 #define Z_MIN_POS 0
 #define X_MAX_POS 205
-#define Y_MAX_POS 222
+#define Y_MAX_POS 252
 #define Z_MAX_POS 210
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
